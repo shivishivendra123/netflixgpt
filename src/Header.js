@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "./utils/slices/userSlice";
-import { signOut } from "firebase/auth";
+import { addUser, removeUser } from "./utils/slices/userSlice";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import {auth} from '../src/utils/firebase'
 import { useNavigate } from "react-router-dom";
 import appStore from "./utils/appStore";
+import { options } from "./utils/constants";
+
 const Header = ()=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const data = useSelector((store)=>store.user);
            
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth,(user)=>{
+            if(user){
+                const {uid,email,displayname} = user;
+                    dispatch(addUser({uid:uid,email:email,displayname:displayname}));
+                    navigate("/browse")
+            }else{
+                dispatch(removeUser());
+                navigate("/")
+            }
+        })
+
+        return ()=>unsubscribe();
+    },[])
+
     const [showUserMenu,setShowUserMenu] = useState(false);
     return (
         <div className="absolute  w-screen z-10 bg-gradient-to-b from-black flex justify-between">
