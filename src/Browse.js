@@ -3,6 +3,7 @@ import Header from "./Header"
 import useNowPlayingMovie from "./Hooks/useNowPlayingMovie"
 import VideoTitle from "./VideoTitle";
 import VideoTrailer from "./VideoTrailer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = ()=>{
     useNowPlayingMovie();
@@ -16,6 +17,7 @@ const Browse = ()=>{
             <Header/>
             <VideoTitle title={data[0].original_title} description={data[0].overview}/>
             <VideoTrailer movie_id = {data[0].id}/>
+            <SecondaryContainer/>
         </div>
     )
 }
