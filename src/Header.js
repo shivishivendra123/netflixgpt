@@ -17,7 +17,7 @@ const Header = ()=>{
             if(user){
                 const {uid,email,displayname} = user;
                     dispatch(addUser({uid:uid,email:email,displayname:displayname}));
-                    navigate("/browse")
+                    //navigate("/browse")
             }else{
                 dispatch(removeUser());
                 navigate("/")
@@ -34,6 +34,9 @@ const Header = ()=>{
 https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="">
 
 </img>
+        <button className="bg-red-700 h-10 mx-6 my-7 rounded-md p-2 text-white" onClick={()=>{
+            navigate('/GptSearch')
+        }}>Gpt Search</button>
         {data?(
             <button onClick={()=>{
                 setShowUserMenu(!showUserMenu);
