@@ -24,10 +24,10 @@ const TopRated = ()=>{
     
 
     return(
-        <div className="text-white font-bold text-5xl mt-[-300px]">
+        <div className="text-white font-bold text-5xl md:mt-[-300px] md:ml-[100px]">
             <h1> Top Rated</h1>
-            <div className="flex">
-                <div className="text-white flex">
+            <div className="    ">
+                <div className="flex overflow-x-auto text-white md:flex md:overflow-x-auto">
                 {
                     data.results.map((movie)=>{
                         return (

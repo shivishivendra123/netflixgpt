@@ -22,10 +22,10 @@ const NowPlaying = () => {
 
     if(data.length===0) return;
   return (
-    <div className="text-white font-bold text-5xl m-4">
+    <div className="text-white font-bold text-5xl m-0 ml-0 md:m-4 md:ml-[100px]">
             <h1 className="my-4"> Now Playing</h1>
             <div className="flex">
-                <div className="text-white flex">
+                <div className="text-white flex overflow-x-auto no-scollbar">
                 {
                     data.results.map((movie)=>{
                         return (

@@ -61,8 +61,8 @@ const Login = ()=>{
     return (
         <div>
             <Header/>
-            <img className="absolute" src="https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="logo"/>
-            <form onSubmit={(e)=>{e.preventDefault()}} className="bg-black absolute w-4/12 my-24 p-10 mx-auto right-0 left-0 text-white bg-opacity-80">
+            <img className="fixed md:absolute h-screen object-cover md:w-screen" src="https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="logo"/>
+            <form onSubmit={(e)=>{e.preventDefault()}} className="bg-black absolute md:w-4/12 my-24 p-10 mx-auto right-0 left-0 text-white bg-opacity-80">
                 <h1 className="font-bold text-3xl mb-2"> {loginForm?"Sign In":"Sign Up"}</h1>
                 {!loginForm?<input type="text"  placeholder="Type your full name..." className="p-2 my-4 w-full bg-slate-500  font-bold"/>:null}
                 
